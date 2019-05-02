@@ -1,6 +1,9 @@
 # ant-cut
 
+> 一个将图片批量平均切分的工具<br>
 > A picture cutting app.
+
+![shap shot](./ant-cut.png)
 
 #### Build Setup
 
