@@ -7,9 +7,9 @@
           <b-button variant="primary" id="directionBtn" v-on:click="onDirectionClick">
             <span v-if="direction === 'horz'">水平</span>
             <span v-else>垂直</span>
-          </b-button>
-          <b-button variant="success" id="inputFile" v-on:click="onOpenFileClick">+</b-button>
+          </b-button>          
           <b-button variant="warning" id="outputPath" v-on:click="onOutputPathClick">+</b-button>
+          <b-button variant="success" id="inputFile" v-on:click="onOpenFileClick">+</b-button>
         </b-input-group-append>
       </b-input-group>
     </div>
@@ -19,6 +19,8 @@
 <script>
   import SystemInformation from './LandingPage/SystemInformation'
   const { dialog } = require('electron').remote
+  const remote = window.require('electron').remote
+  const cutPng = remote.app.cutPng
 
   export default {
     name: 'landing-page',
@@ -39,6 +41,7 @@
           properties: ['multiSelections']
         })
         console.log(this.inputFiles)
+        cutPng(this.inputFiles, this.outputPath, this.direction, this.rltNumber)
       },
       onOutputPathClick () {
         console.log('this.outputPath:', this.outputPath)
