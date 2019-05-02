@@ -20,9 +20,9 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 600,
+    height: 160,
     useContentSize: true,
-    width: 400,
+    width: 550,
     show: false,
     resizable: false
   })
@@ -32,6 +32,8 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  mainWindow.setMenu(null)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
