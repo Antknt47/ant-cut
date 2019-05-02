@@ -2,14 +2,14 @@
   <div id="wrapper">
     <div id="main">
       <b-input-group>
-        <b-form-input type="number" v-model="rltNumber" id="rltNumberInput" display="inline"></b-form-input>
+        <b-form-input type="number" v-model="rltNumber" id="rltNumberInput" display="inline" v-b-tooltip.hover title="生成图片数"></b-form-input>
         <b-input-group-append>
-          <b-button variant="primary" id="directionBtn" v-on:click="onDirectionClick">
-            <span v-if="direction === 'horz'">水平</span>
-            <span v-else>垂直</span>
+          <b-button variant="primary" id="directionBtn" v-on:click="onDirectionClick" v-b-tooltip.hover title="切割方向">
+            <span v-if="direction === 'horz'">↔</span>
+            <span v-else>↕️</span>
           </b-button>          
-          <b-button variant="warning" id="outputPath" v-on:click="onOutputPathClick">+</b-button>
-          <b-button variant="success" id="inputFile" v-on:click="onOpenFileClick">+</b-button>
+          <b-button variant="primary" id="outputPath" v-on:click="onOutputPathClick" v-b-tooltip.hover title="输出路径">📁</b-button>
+          <b-button variant="primary" id="inputFile" v-on:click="onOpenFileClick" v-b-tooltip.hover title="输入文件">📄</b-button>
         </b-input-group-append>
       </b-input-group>
     </div>
@@ -92,5 +92,8 @@
   #rltNumberInput {
     float: left;
     width: 50px;
+  }
+  #directionBtn {
+    width: 40px;
   }
 </style>
